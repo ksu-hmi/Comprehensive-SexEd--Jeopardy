@@ -10,5 +10,5 @@
  - [X] Imported panda and and pygame
  - [ ] Figure out how to import the csv path
  - [ ] Edit the qset.csv and add our jeoprady questions 
- 
-
+ - []  Edit codes for jeopardy.py, jeopardy_V2.py, jeopardy_V3.py, jeopardy_V4.py
+ - []  Added additional jeopardy questions for the qset.csv
