@@ -6,5 +6,9 @@
  - [x] After choosing chatbot, pick a specific code we would like to run
  - [x] After further research, we've decided to work on the jeopardy comprehesive sex eduation game
  - [x] Pulled multiple codes from another repository 
- - []  Ran the codes
+ - [X] Run the codes and check for error 
+ - [X] Imported panda and and pygame
+ - [ ] Figure out how to import the csv path
+ - [ ] Edit the qset.csv and add our jeoprady questions 
+ 
 
