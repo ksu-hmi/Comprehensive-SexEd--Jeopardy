@@ -7,7 +7,7 @@ MAX_TIME_LIMIT = 60
 WIDTH, HEIGHT = 1200,800
 
 if not pygame.font: print ('Warning, fonts disabled')
-if not pygame.mixer: print ('Warning, sound disabled')
+#We decided to remove the sound 
 
 board_matrix=[
               ["First","Second","Third","Fourth","Fifth","Sixth"],
@@ -57,12 +57,12 @@ for i in range(team_number):
 # print(team_names)
 pygame.init()
 gameDisplay = pygame.display.set_mode((800,600))
-pygame.display.set_caption('Jeoprady by Pharzan')
+pygame.display.set_caption('Jeoprady by Chineze and Kara')
 clock = pygame.time.Clock()
 
-white = (255,255,255)
-grey = (160,160,160)
-black = (0,0,0)
+orange = (255,255,255)
+purple = (160,160,160)
+pink = (0,0,0)
 blue = (0,0,255)
 red = (255,0,0)
 green = (0,255,0)
@@ -73,17 +73,17 @@ yellow = (255,255,0)
 class Pane(object):
     def __init__(self):
         pygame.init()
-        self.font = pygame.font.SysFont('Arial', 18)
+        self.font = pygame.font.SysFont('Times New Roman', 18)
         pygame.display.set_caption('Box Test')
         self.screen = pygame.display.set_mode((WIDTH,HEIGHT), 0, 32)
-        self.screen.fill((white))
+        self.screen.fill((orange))
         self.draw_grid_flag=True
         pygame.display.update()
 
 
     def draw_grid(self):
         if self.draw_grid_flag:
-            self.screen.fill((white))    
+            self.screen.fill((orange))    
             self.rect = pygame.draw.rect(self.screen, (blue), (0, 0, WIDTH, 100))
             self.draw_grid_flag=False
             self.show_score()
@@ -102,11 +102,11 @@ class Pane(object):
         pygame.display.update()
 
     def clear_already_selected(self,col,row):
-        pygame.draw.rect(self.screen, (black), (row*(WIDTH/6), col*100, WIDTH/6, 100))
+        pygame.draw.rect(self.screen, (pink), (row*(WIDTH/6), col*100, WIDTH/6, 100))
         
     def show_score(self):
         curser=10
-        self.rect = pygame.draw.rect(self.screen, (grey), (0,600 , WIDTH, 100))
+        self.rect = pygame.draw.rect(self.screen, (purple), (0,600 , WIDTH, 100))
         for team in team_names:
             self.screen.blit(self.font.render(team, True, (255,0,0)), (curser, 610))
             curser+=WIDTH/6
@@ -154,7 +154,7 @@ class Question(object):
         self.screen.blit(self.font.render(str(text), True, (255,0,0)), (WIDTH/2-(sizeX/2), HEIGHT/2))
         self.rect = pygame.draw.rect(self.screen, (green), ((WIDTH/6), 500, WIDTH/6, 100))
         self.rect = pygame.draw.rect(self.screen, (red), (4*(WIDTH/6), 500, WIDTH/6, 100))
-        self.rect = pygame.draw.rect(self.screen, (grey), ((WIDTH/2)-(WIDTH/(18*2)), 500, WIDTH/18, 100))
+        self.rect = pygame.draw.rect(self.screen, (purple), ((WIDTH/2)-(WIDTH/(18*2)), 500, WIDTH/18, 100))
         pygame.display.update()
 
 class Timer(object):
