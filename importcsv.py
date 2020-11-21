@@ -1,8 +1,9 @@
-import csv
+#import csv
+#from csv import reader
 
-with open('qset1.csv') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',') 
-    print(readCSV)
+#importing a csv file to our project 
 
-    for row in read:
-        print(row['Questions'], row['Answers'], row['Categories'], row['Score'])
+import pandas as pd
+SexEd = pd.read_csv("C:/Users/clem okpala/Documents/DM/Python/comprehensive-sex-ed-app/qset1.csv")
+
+SexEd.head()
