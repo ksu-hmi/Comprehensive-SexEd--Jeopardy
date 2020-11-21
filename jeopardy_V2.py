@@ -161,7 +161,7 @@ class Panel(object):
 		done_flag = False
 		question_txt = q['question']
 		sizeX, sizeY = self.font.size(question_txt)
-		self.clear_screen(black)
+		self.clear_screen(pink)
 		self.screen.blit(self.font.render(question_txt, True, red), (Width/2-(sizeX/2), Height/2))
 		pygame.display.update()
 		success = Cell(Width/6,Height-2*Height/6)
@@ -197,14 +197,14 @@ class Panel(object):
 					return 'board_time'
 				
 	def show_picture_question(self,q,path):
-		self.clear_screen(black)
+		self.clear_screen(pink)
 		img = pygame.image.load(path)
 		X,Y = img.get_rect().size
 		self.screen.blit(img,(Width/2-X/2,Height/2-Y/2))
 		# pygame.display.flip()
 	def show_audio_question(self,q,path):
 		done_flag = False
-		self.clear_screen(black)
+		self.clear_screen(pink)
 		pygame.display.update()
 		sound = pygame.mixer.Sound(path)
 		# X,Y = img.get_rect().size
@@ -305,7 +305,7 @@ while True:
 			 		Mode = 'question_time'
 		# game process:
 	if Mode == 'board_time':
-		gamePanel.clear_screen(white)
+		gamePanel.clear_screen(orange)
 		gamePanel.draw_grid()
 	elif Mode == 'question_time':
 		if question_type == 'picture':
