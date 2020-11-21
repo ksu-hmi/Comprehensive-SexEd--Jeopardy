@@ -13,9 +13,9 @@ Rows, Cols = 0,0
 Cats = []
 clock = pygame.time.Clock()
 # Colors:
-white = (255,255,255)
-grey = (160,160,160)
-black = (0,0,0)
+orange = (255,255,255)
+purple = (160,160,160)
+pink = (0,0,0)
 blue = (0,0,255)
 red = (255,0,0)
 green = (0,255,0)
