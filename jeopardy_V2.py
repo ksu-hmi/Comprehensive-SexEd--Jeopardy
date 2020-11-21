@@ -47,7 +47,7 @@ class Timer(object):
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((Width,Height), 0, 32)
-        self.font = pygame.font.SysFont('Arial', 32)
+        self.font = pygame.font.SysFont('Times New Roman', 32)
         self.timer_y_pos=0 # top
         self.box_width = Width/6 #set to middle of screen
         self.box_height = 100
@@ -76,10 +76,10 @@ class Timer(object):
 class Panel(object):
 	def __init__(self):
 		pygame.init()
-		self.font = pygame.font.SysFont('Arial', 18)
+		self.font = pygame.font.SysFont('Times New Roman', 18)
 		pygame.display.set_caption('Jeopardy board game')
 		self.screen = pygame.display.set_mode((Width,Height), 0, 32)	
-		self.screen.fill((white))
+		self.screen.fill((orange))
 		pygame.display.update()
 	def center(self,txt,box_width,box_height):
 		sizeX, sizeY = self.font.size(txt)
@@ -90,9 +90,9 @@ class Panel(object):
 		# print(teams.selected,teams.scores[teams.selected])
 		for i,name in enumerate(teams.names):
 			text = str(name)
-			self.screen.blit(self.font.render(text, True, black), (i*Width/6, 6*Height/8))
+			self.screen.blit(self.font.render(text, True, pink), (i*Width/6, 6*Height/8))
 			score = str(teams.scores[i])
-			self.screen.blit(self.font.render(score, True, black), (i*Width/6, 6*Height/8+25))
+			self.screen.blit(self.font.render(score, True, pink), (i*Width/6, 6*Height/8+25))
 
 
 	def draw_grid(self):
@@ -101,16 +101,16 @@ class Panel(object):
 		for i,col in enumerate(board_matrix):
 			for j,cell in enumerate(board_matrix[i]):
 				if cell.selected:
-					self.rect = pygame.draw.rect(self.screen, (black), (i*Width/6, j*Height/8, Width/6, Height/8))
-				self.rect = pygame.draw.rect(self.screen, (black), (i*Width/6, j*Height/8, Width/6, Height/8),2)
+					self.rect = pygame.draw.rect(self.screen, (pink), (i*Width/6, j*Height/8, Width/6, Height/8))
+				self.rect = pygame.draw.rect(self.screen, (pink), (i*Width/6, j*Height/8, Width/6, Height/8),2)
 				try:
 					text = str(cell.content['score'])
 					sizeX, sizeY = self.font.size(text)
-					self.screen.blit(self.font.render(text, True, black), (j*Width/6+((Width/12)-sizeX), i*Height/8+((Height/16)-sizeY)))
+					self.screen.blit(self.font.render(text, True, pink), (j*Width/6+((Width/12)-sizeX), i*Height/8+((Height/16)-sizeY)))
 				except:
 					text = str(cell.content)
 					sizeX, sizeY = self.font.size(text)
-					self.screen.blit(self.font.render(text, True, black), (j*Width/6, i*Height/8))				
+					self.screen.blit(self.font.render(text, True, pink), (j*Width/6, i*Height/8))				
 		pygame.display.update()
 
 	def clicked(self,pos):
