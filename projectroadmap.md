@@ -12,3 +12,8 @@
  - [ ] Edit the qset.csv and add our jeoprady questions 
  - [ ] Edit codes for jeopardy.py, jeopardy_V2.py, jeopardy_V3.py, jeopardy_V4.py
  - [ ] Added additional jeopardy questions for the qset.csv
+ - [X] Updated project name
+ - [ ] Create a PowerPoint Slide introducing our project
+ - [ ] Show a tag line that introduces the main concept of what it does/will do
+ - [ ] Show 1-2 screenshots or pictures demonstrating the idea or parts
+ 
