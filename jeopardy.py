@@ -7,7 +7,6 @@ MAX_TIME_LIMIT = 60
 WIDTH, HEIGHT = 1200,800
 
 if not pygame.font: print ('Warning, fonts disabled')
-#We decided to remove the sound 
 
 board_matrix=[
               ["First","Second","Third","Fourth","Fifth","Sixth"],
@@ -34,7 +33,7 @@ get_questions()
 class Player(object):
     def __init__(self):
         self.score = 0
-        # self.team_name=team_name
+        # self.player_name=player_name
         # self.players = players
 
     def set_score(self,score):
@@ -44,17 +43,17 @@ class Player(object):
 p1 = Player()
 show_question_flag=False
 start_flag = False
-team_number = int(input("Number of teams: "))
+player_number = int(input("player number: "))
 team_names = []
 team_scores = []
 already_selected = []
 
-for i in range(team_number):
-    name=input("Team Name: ")
-    team_names.append(name)
-    team_scores.append(0)
+for i in range(player_number):
+    name=input("Name of player : ")
+    player_names.append(name)
+    player_scores.append(0)
 
-# print(team_names)
+# print(player_names)
 pygame.init()
 gameDisplay = pygame.display.set_mode((800,600))
 pygame.display.set_caption('Jeoprady by Chineze and Kara')
