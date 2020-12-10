@@ -39,16 +39,19 @@ class Player(object):
     def set_score(self,score):
         self.score = score
 
+ 
+
 
 p1 = Player()
 show_question_flag=False
 start_flag = False
 player_number = int(input("player number: "))
-team_names = []
-team_scores = []
+player_names = []
+player_scores = []
 already_selected = []
 
 for i in range(player_number):
+    name = "player_name"
     name=input("Name of player : ")
     player_names.append(name)
     player_scores.append(0)
@@ -95,7 +98,7 @@ class Pane(object):
         for row in range(6):
             cell_pos=WIDTH/6
             for x,header in enumerate(range(6)):
-                self.rect = pygame.draw.rect(self.screen, (black), (0, row*100, cell_pos, 100),2)
+                self.rect = pygame.draw.rect(self.screen, ("black"), (0, row*100, cell_pos, 100),2)
                 cell_pos+=WIDTH/6
                 # pygame.display.update()
         pygame.display.update()
@@ -106,11 +109,11 @@ class Pane(object):
     def show_score(self):
         curser=10
         self.rect = pygame.draw.rect(self.screen, (purple), (0,600 , WIDTH, 100))
-        for team in team_names:
+        for team in player_names:
             self.screen.blit(self.font.render(team, True, (255,0,0)), (curser, 610))
             curser+=WIDTH/6
         curser=10
-        for score in team_scores:
+        for score in player_scores:
             self.screen.blit(self.font.render(str(score), True, (255,0,0)), (curser, 640))
             curser+=WIDTH/6
     def show_selected_box(self):
@@ -134,12 +137,12 @@ class Question(object):
         self.font = pygame.font.SysFont('Open Sans', 32)
         pygame.display.set_caption('Box Test')
         self.screen = pygame.display.set_mode((WIDTH,HEIGHT+200), 0, 32)
-        self.screen.fill((white))
+        self.screen.fill(("white"))
         pygame.display.update()
 
     def show(self,q):
         # curser=0
-        self.rect = pygame.draw.rect(self.screen, (black), (0, 0, WIDTH, HEIGHT))
+        self.rect = pygame.draw.rect(self.screen, ("black"), (0, 0, WIDTH, HEIGHT))
         sizeX, sizeY = self.font.size(q)
         if (sizeX>WIDTH):
             print("TEXT TOOO LONG!!!")
@@ -148,7 +151,7 @@ class Question(object):
         pygame.display.update()
 
     def show_answer(self,text):
-        self.screen.fill((black))
+        self.screen.fill(("black"))
         sizeX, sizeY = self.font.size(text)
         self.screen.blit(self.font.render(str(text), True, (255,0,0)), (WIDTH/2-(sizeX/2), HEIGHT/2))
         self.rect = pygame.draw.rect(self.screen, (green), ((WIDTH/6), 500, WIDTH/6, 100))
@@ -238,7 +241,7 @@ while Running_flag:
                     for col in range(6):
                         if(col*(WIDTH/6)<event.pos[0]<(col+1)*(WIDTH/6) and event.pos[1]>600):
                             # answering_team = teams[col]
-                            print('Selected Team:',col, 'Selected Team Name:',team_names[col],'score',team_scores[col])
+                            print('Selected Team:',col, 'Selected Team Name:',player_names[col],'score',player_scores[col])
                             selected_team_index = col
                             pane1.show_selected_box()
                             team_selected = True
@@ -281,10 +284,10 @@ while Running_flag:
                     if click_count==2:
                         if (event.pos[0]>(WIDTH/6) and event.pos[0]<2*(WIDTH/6)):
                             print ("RIGHTTTTT")
-                            team_scores[selected_team_index] = team_scores[selected_team_index]+board_matrix[r][c]
+                            player_scores[selected_team_index] = player_scores[selected_team_index]+board_matrix[r][c]
                         elif (event.pos[0]>4*(WIDTH/6) and event.pos[0]<5*(WIDTH/6)):
                             print('WRONGGGG!')
-                            team_scores[selected_team_index] = team_scores[selected_team_index]-board_matrix[r][c]
+                            player_scores[selected_team_index] = player_scores[selected_team_index]-board_matrix[r][c]
                         print('Second Click:',event.pos[0],event.pos[1])
                         team_selected = False
                         question_time = False
@@ -295,11 +298,11 @@ while Running_flag:
                     for col in range(6):
                         if(col*(WIDTH/6)<event.pos[0]<(col+1)*(WIDTH/6) and event.pos[1]>600):
                             # answering_team = teams[col]
-                            print('New Selected Team:',col, 'Selected Team Name:',team_names[col],
-                                  'score',team_scores[col],
-                                  'Previous selected team score',team_scores[selected_team_index],
+                            print('New Selected Team:',col, 'Selected Team Name:',player_names[col],
+                                  'score',player_scores[col],
+                                  'Previous selected team score',player_scores[selected_team_index],
                                   'Score:',board_matrix[r][c])
-                            team_scores[selected_team_index]=team_scores[selected_team_index]-board_matrix[r][c]
+                            player_scores[selected_team_index]=player_scores[selected_team_index]-board_matrix[r][c]
                             selected_team_index = col
                             pane1.show_score()
                             pane1.show_selected_box()
