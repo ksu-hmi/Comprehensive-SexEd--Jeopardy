@@ -56,7 +56,8 @@ class Timer(object):
         self.startTime=0
         self.elapsed=0
     def start(self):
-        self.startTime = time.clock()
+	    clock = pygame.time.clock() 
+		self.startTime = time.clock()
     def show(self):
         self.elapsed = round(time.clock() - self.startTime,1)
         elapsed = str(self.elapsed)
@@ -230,7 +231,7 @@ class Team(object):
 			self.teams = 0
 	def set_name(self,name):
 		name = str(name)
-		self.team_names.append(name)
+		self.player_names.append(name)
 	def setup_scores(self):
 		for team in self.names:
 			self.scores.append(0)
