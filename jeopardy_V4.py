@@ -16,7 +16,7 @@ Mode = 'board_time'
 # COLORS ::
 white = (255,255,255)
 grey = (160,160,160)
-black = (0,0,0)
+pink = (0,0,0)
 blue = (0,0,255)
 red = (255,0,0)
 green = (0,255,0)
@@ -72,7 +72,7 @@ class Cell(object):
 		if 'background' in data:
 			self.background = data['background']
 		else:
-			self.background = black	
+			self.background = pink	
 		
 	def set_content(self,cell_text):
 		self.content = cell_text
@@ -217,7 +217,7 @@ class GameBoard(object):
 
 	def show_team(self,cell):
 		foreground = red
-		background = black
+		background = pink
 		if Mode == 'question_time':
 				background = white
 		## the next line clear the background for the teams
@@ -254,7 +254,7 @@ class GameBoard(object):
 	def show_question(self,cell):
 		text = cell.question
 		sizeX, sizeY = self.font.size(text)
-		self.clear_screen(black)
+		self.clear_screen(pink)
 		
 		# self.show_buttons()
 		self.update_cells()
