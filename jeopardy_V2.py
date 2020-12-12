@@ -56,7 +56,6 @@ class Timer(object):
         self.startTime=0
         self.elapsed=0
     def start(self):
-	    clock = pygame.time.clock() 
 		self.startTime = time.clock()
     def show(self):
         self.elapsed = round(time.clock() - self.startTime,1)

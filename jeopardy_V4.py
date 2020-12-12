@@ -10,7 +10,7 @@ Time_Limit= 30
 Width, Height = 1200,700
 width = Width/6
 height = Height/8
-question_file = 'qset1_backup'
+question_file = 'qset1'
 # Rows, Cols = 0,0
 Mode = 'board_time'
 # COLORS ::
